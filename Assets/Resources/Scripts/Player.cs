@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private int speed = 5;
-    private float jumpHeight = 20;
+    private float jumpHeight = 30;
     private float horizontalDirection;
     private Animator animator;
     public bool facingRight = false;

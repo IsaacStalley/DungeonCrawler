@@ -56,8 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Resources\Scripts\Player.cs" />
-    <Compile Include="Assets\Resources\Scripts\CameraSize.cs" />
     <Compile Include="Assets\Resources\Scripts\Bow.cs" />
+    <Compile Include="Assets\Resources\Scripts\CameraSize.cs" />
+    <Compile Include="Assets\Resources\Scripts\DungeonGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
