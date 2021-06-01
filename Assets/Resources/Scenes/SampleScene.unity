@@ -4699,8 +4699,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 113a5bea69a1cfd46a657f9319b7dff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalMax: 50
-  verticalMax: 13
+  horizontalStepSize: 10
+  verticalTotalSize: 13
+  verticalStepSize: 4
   dungeonTiles:
   - Regular_1
   - Regular_2
@@ -13081,7 +13082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xMargin: 0.5
-  yMargin: 100
+  yMargin: 15
   xSmooth: 4
   ySmooth: 1
   center: -2

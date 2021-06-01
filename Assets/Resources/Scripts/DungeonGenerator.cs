@@ -4,24 +4,32 @@ using UnityEngine;
 
 public class DungeonGenerator : MonoBehaviour
 {
-    public int horizontalMax = 50;
-    public int verticalMax = 13;
+    private int horizontalTotalSize;
+    public int horizontalStepSize = 10;
+    public int verticalTotalSize = 13;
+    public int verticalStepSize = 4;
     private int floorLayer = 2;
     private float tileSize = 1.1f;
-    public string[,] dungeon = new string[15, 50];
+    public string[,] dungeon = new string[15, 60];
     public string[] dungeonTiles = new string[] {"Regular_1", "Regular_2", "Smooth_In", "Smooth_Out", "Regular_Corner"};
 
     // Start is called before the first frame update
     void Start()
     {
+        GenerateHorizontalSize();
         GenerateDungeon();
         SpawnDungeon();
     }
+
+    private void GenerateHorizontalSize()
+    {
+        horizontalTotalSize = Random.Range(30, 50);
+    }
     private void SpawnDungeon()
     {
-        for (int i = 0; i < verticalMax; i++)
+        for (int i = 0; i < verticalTotalSize; i++)
         {
-            for (int x = 0; x < horizontalMax; x++)
+            for (int x = 0; x < horizontalTotalSize; x++)
             {
                 InstantiateTile(i, x);
             }
@@ -56,7 +64,7 @@ public class DungeonGenerator : MonoBehaviour
 
     private void AddInitialTiles()
     {
-        for (int i = floorLayer; i < verticalMax; i ++)
+        for (int i = floorLayer; i < verticalTotalSize; i ++)
         {
             dungeon[i, 0] = dungeonTiles[0];
         }
@@ -64,18 +72,44 @@ public class DungeonGenerator : MonoBehaviour
 
     private void AddMiddleTiles()
     {
-        for (int i = 0; i < horizontalMax; i++)
+        for (int i = 0; i < horizontalTotalSize; i++)
         {
-            
-            dungeon[floorLayer, i] = dungeonTiles[0];
+            int stepSize = Random.Range(0, horizontalStepSize);
+            AddVerticalTiles(i);
+            for (int x = 0; x <= stepSize; x ++)
+            {
+                dungeon[floorLayer, i + x] = dungeonTiles[0];
+            }
+            i += stepSize;
         }
+    }
+    private void AddVerticalTiles(int i)
+    {
+        int newfloorLayer = GetNewFloorLayer();
+        int x = newfloorLayer;
+        while (x > floorLayer)
+        {
+            dungeon[x, i] = dungeonTiles[0];
+            x --;
+        }
+        while (x < floorLayer)
+        {
+            dungeon[x, i] = dungeonTiles[0];
+            x ++;
+        }
+        floorLayer = newfloorLayer;
+    }
+
+    private int GetNewFloorLayer()
+    {
+        return Random.Range(0, verticalStepSize);
     }
 
     private void AddEndTiles()
     {
-        for (int i = 2; i < verticalMax; i++)
+        for (int i = floorLayer; i < verticalTotalSize; i++)
         {
-            dungeon[i, 0] = dungeonTiles[0];
+            dungeon[i, horizontalTotalSize] = dungeonTiles[0];
         }
     }
 }
