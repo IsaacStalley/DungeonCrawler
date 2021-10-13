@@ -6,7 +6,7 @@ using UnityEngine;
 public class CameraSize : MonoBehaviour
 {
     Camera cam;
-    Transform player;
+    GameObject player;
     public float xMargin = 0.5f;
     public float yMargin = 2f;
     public float xSmooth = 4f;
@@ -15,7 +15,7 @@ public class CameraSize : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.Find("Player").transform;
+        player = GameObject.Find("Player");
     }
 
     void LateUpdate()
@@ -25,12 +25,12 @@ public class CameraSize : MonoBehaviour
 
     bool CheckXMargin()
     {
-        return Mathf.Abs(transform.position.x - player.position.x) > xMargin;
+        return Mathf.Abs(transform.position.x - player.transform.position.x) > xMargin;
     }
 
     bool CheckYMargin()
     {
-        return Mathf.Abs(transform.position.y - player.position.y + center) > yMargin;
+        return Mathf.Abs(transform.position.y - player.transform.position.y + center) > yMargin;
     }
 
     void TrackPlayer()
@@ -38,9 +38,9 @@ public class CameraSize : MonoBehaviour
         float targetX = transform.position.x;
         float targetY = transform.position.y;
         if (CheckXMargin())
-            targetX = Mathf.Lerp(transform.position.x, player.position.x, xSmooth * Time.deltaTime);
+            targetX = Mathf.Lerp(transform.position.x, player.transform.position.x, xSmooth * Time.deltaTime);
         if (CheckYMargin())
-            targetY = Mathf.Lerp(transform.position.y, player.position.y, ySmooth * Time.deltaTime);
+            targetY = Mathf.Lerp(transform.position.y, player.transform.position.y, ySmooth * Time.deltaTime);
         transform.position = new Vector3(targetX, targetY, transform.position.z);
     }
 }

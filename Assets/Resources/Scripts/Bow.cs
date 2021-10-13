@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -98,11 +98,11 @@ public class Bow : MonoBehaviour
     private void FollowMouse()
     {
         Vector3 mousePos = MousePosition();
-        var Fangle = AngleBackArm(frontArmTransform.position, mousePos) * (150 / 90) - 90;
-        var Bangle = AngleBackArm(frontArmTransform.position, mousePos) - 90;
+        var frontAngle = AngleBackArm(frontArmTransform.position, mousePos) * (150 / 90) - 90;
+        var backAngle = AngleBackArm(frontArmTransform.position, mousePos) - 90;
 
-        frontArm.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, Fangle));
-        backArm.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, Bangle));
+        frontArm.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, frontAngle));
+        backArm.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, backAngle));
 
         weapon.GetComponent<SpriteRenderer>().sortingOrder = 4;
     }
