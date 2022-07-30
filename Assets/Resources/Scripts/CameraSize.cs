@@ -18,7 +18,7 @@ public class CameraSize : MonoBehaviour
         player = GameObject.Find("Player");
     }
 
-    void LateUpdate()
+    void Update()
     {
         TrackPlayer();
     }
@@ -35,12 +35,12 @@ public class CameraSize : MonoBehaviour
 
     void TrackPlayer()
     {
-        float targetX = transform.position.x;
-        float targetY = transform.position.y;
-        if (CheckXMargin())
-            targetX = Mathf.Lerp(transform.position.x, player.transform.position.x, xSmooth * Time.deltaTime);
-        if (CheckYMargin())
-            targetY = Mathf.Lerp(transform.position.y, player.transform.position.y, ySmooth * Time.deltaTime);
+        float targetX = player.transform.position.x;
+        float targetY = player.transform.position.y;
+        //if (CheckXMargin())
+        //    targetX = Mathf.Lerp(transform.position.x, player.transform.position.x, xSmooth * Time.deltaTime);
+        //if (CheckYMargin())
+        //    targetY = Mathf.Lerp(transform.position.y, player.transform.position.y, ySmooth * Time.deltaTime);
         transform.position = new Vector3(targetX, targetY, transform.position.z);
     }
 }

@@ -6,14 +6,13 @@ public class DungeonGenerator : MonoBehaviour
 {
     private Vector3 playerPosition;
     public int dungeonSize = 400;
-    private float tileSize = 1.1f;
+    private float tileSize = 1;
     private int roomCount = 10;
     Room[,] totalRooms = new Room[10, 10];
     public string[,] dungeon = new string[400, 400];
     public int[,] tileRotations = new int[400, 400];
     int[][] tunnelOpenings = new int[10][];
     int[][] tunnelOpeningPositions = new int[10][];
-    public string[] dungeonTiles = new string[] {"Regular_1", "Regular_2", "Smooth_In", "Smooth_Out", "Regular_Corner", "Cobble"};
 
     // Start is called before the first frame update
     void Start()
@@ -57,11 +56,11 @@ public class DungeonGenerator : MonoBehaviour
         int widthSizeCounter = 0;
         int[] heightSizeCounter = new int[3] {0,0,0};
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 1; i++)
         {
             widthSizeCounter = 0;
 
-            for (int x = 0; x < 3; x++)
+            for (int x = 0; x < 1; x++)
             {
                 GameObject roomObj = Resources.Load<GameObject>("Prefabs/room");
                 roomObj = Instantiate(roomObj);

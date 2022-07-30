@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
         PlayerMovement(horizontalDirection);
         WalkingAnimation(horizontalDirection);
     }
+    
 
     private void PlayerMovement(float horizontalDirection)
     {
@@ -62,6 +63,7 @@ public class Player : MonoBehaviour
 
     void MoveLeft(float horizontalDirection)
     {
+        //GetComponent<Rigidbody2D>().MovePosition(GetComponent<Rigidbody2D>().position + new Vector2(-1, 0) * speed * Time.deltaTime);
         transform.Translate(new Vector2(-1, 0) * speed * Time.deltaTime);
         if (horizontalDirection < 0 && facingRight)
             FlipPlayer();

@@ -45,14 +45,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   height: 0
   width: 0
-  size: 20
-  widthRange: 0800000012000000
+  size: 100
+  widthRange: 3200000046000000
   heightRange: 080000000c000000
-  dungeonTiles:
+  edgeTiles:
   - Regular_1
   - Regular_2
-  - Smooth_In
-  - Smooth_Out
+  - Cobble
   - Regular_Corner
   - Regular_Corner_Inner
+  innerTiles:
+  - Smooth_In
+  - Smooth_Out
   - Cobble
+  backgroundTiles:
+  - Background Reg 1
+  - Background Reg 2
+  - Cobble
+  - Background Reg Corner
+  - Background Reg Corner Inner

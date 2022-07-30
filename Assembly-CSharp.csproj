@@ -36,11 +36,13 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Resources\Scripts\Room.cs" />
      <Compile Include="Assets\Resources\Scripts\Player.cs" />
      <Compile Include="Assets\Resources\Scripts\DungeonGenerator.cs" />
      <Compile Include="Assets\Resources\Scripts\Bow.cs" />
+     <Compile Include="Assets\Resources\Scripts\Collision.cs" />
      <Compile Include="Assets\Resources\Scripts\CameraSize.cs" />
-     <Compile Include="Assets\Resources\Scripts\Room.cs" />
+     <Compile Include="Assets\Resources\Scripts\Notes.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.1f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
